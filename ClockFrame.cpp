@@ -2,7 +2,7 @@
 #include "ClockFrame.h"
 
 ClockFrame::ClockFrame() {
-    Glib::signal_timeout().connect(sigc::mem_fun(*this, &ClockFrame::on_timeout), 200);
+    Glib::signal_timeout().connect(sigc::mem_fun(*this, &ClockFrame::on_timeout), 1000);
 
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {

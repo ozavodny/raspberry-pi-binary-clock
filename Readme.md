@@ -1,4 +1,4 @@
-* RpiClock
+# RpiClock
 
 Binary clock for raspberry pi 480*320 display
 
