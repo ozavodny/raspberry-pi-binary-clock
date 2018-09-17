@@ -3,7 +3,7 @@
 
 #include <gtkmm/window.h>
 #include <gtkmm/button.h>
-#include "ClockFrame.h"
+#include "ClockGrid.h"
 
 class MainWindow : public Gtk::Window {
 public:
@@ -12,7 +12,7 @@ public:
     ~MainWindow() override;
 
 protected:
-    ClockFrame clock;
+    ClockGrid clock;
 
     gboolean on_key_press(GdkEventKey *eventKey);
 

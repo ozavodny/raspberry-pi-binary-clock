@@ -6,9 +6,9 @@
 #include <gtkmm/grid.h>
 #include "ClockPixel.h"
 
-class ClockFrame : public Gtk::Grid {
+class ClockGrid : public Gtk::Grid {
 public:
-    ClockFrame();
+    ClockGrid();
 
 protected:
     std::vector<ClockPixel *> pixels;

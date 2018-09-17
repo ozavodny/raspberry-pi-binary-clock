@@ -1,8 +1,8 @@
 #include <giomm.h>
-#include "ClockFrame.h"
+#include "ClockGrid.h"
 
-ClockFrame::ClockFrame() {
-    Glib::signal_timeout().connect(sigc::mem_fun(*this, &ClockFrame::on_timeout), 1000);
+ClockGrid::ClockGrid() {
+    Glib::signal_timeout().connect(sigc::mem_fun(*this, &ClockGrid::on_timeout), 1000);
 
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
@@ -14,7 +14,7 @@ ClockFrame::ClockFrame() {
     }
 }
 
-bool ClockFrame::on_timeout() {
+bool ClockGrid::on_timeout() {
     auto win = get_window();
     if (win) {
         Gdk::Rectangle r(0, 0, win->get_width(),

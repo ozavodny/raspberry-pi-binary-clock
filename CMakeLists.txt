@@ -15,6 +15,6 @@ LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
 # Add other flags to the compiler
 ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 
-add_executable(RpiClock main.cpp MainWindow.cpp MainWindow.h ClockFrame.cpp ClockFrame.h ClockPixel.cpp ClockPixel.h)
+add_executable(RpiClock main.cpp MainWindow.cpp MainWindow.h ClockGrid.cpp ClockGrid.h ClockPixel.cpp ClockPixel.h)
 
 TARGET_LINK_LIBRARIES(RpiClock ${GTK3_LIBRARIES})
