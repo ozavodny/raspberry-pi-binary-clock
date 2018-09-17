@@ -9,8 +9,10 @@
 class ClockFrame : public Gtk::Grid {
 public:
     ClockFrame();
+
 protected:
-    std::vector<ClockPixel*> pixels;
+    std::vector<ClockPixel *> pixels;
+
     bool on_timeout();
 };
 

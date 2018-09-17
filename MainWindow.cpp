@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include "MainWindow.h"
 
 MainWindow::MainWindow() {
@@ -11,8 +11,8 @@ MainWindow::MainWindow() {
 }
 
 gboolean MainWindow::on_key_press(GdkEventKey *eventKey) {
-    if(eventKey->keyval == GDK_KEY_F11) {
-        if(is_fullscreen)
+    if (eventKey->keyval == GDK_KEY_F11) {
+        if (is_fullscreen)
             unfullscreen();
         else
             fullscreen();

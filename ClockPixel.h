@@ -6,11 +6,14 @@
 class ClockPixel : public Gtk::DrawingArea {
 public:
     ClockPixel();
+
     ~ClockPixel() override;
 
     void setActive(bool active = false);
+
 protected:
-    bool on_draw(const Cairo::RefPtr<Cairo::Context>& cr) override;
+    bool on_draw(const Cairo::RefPtr<Cairo::Context> &cr) override;
+
     bool active = false;
 };
 

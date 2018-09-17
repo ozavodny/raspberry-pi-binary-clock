@@ -8,9 +8,12 @@
 class MainWindow : public Gtk::Window {
 public:
     MainWindow();
+
     ~MainWindow() override;
+
 protected:
     ClockFrame clock;
+
     gboolean on_key_press(GdkEventKey *eventKey);
 
     bool is_fullscreen = false;
