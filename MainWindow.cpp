@@ -1,4 +1,5 @@
 
+#include <iostream>
 #include "MainWindow.h"
 
 MainWindow::MainWindow() {
@@ -8,6 +9,10 @@ MainWindow::MainWindow() {
     clock.show();
 
     signal_key_press_event().connect(sigc::mem_fun(*this, &MainWindow::on_key_press));
+
+    gesture_swipe = Gtk::GestureSwipe::create(*this);
+    gesture_swipe->signal_swipe().connect(sigc::mem_fun(*this, &MainWindow::on_gesture_swipe_swipe));
+    gesture_swipe->set_touch_only(false);
 }
 
 gboolean MainWindow::on_key_press(GdkEventKey *eventKey) {
@@ -24,6 +29,16 @@ gboolean MainWindow::on_key_press(GdkEventKey *eventKey) {
             break;
     }
     return 0;
+}
+
+void MainWindow::on_gesture_swipe_swipe(double velocity_x, double velocity_y) {
+    if(abs(velocity_x) > abs(velocity_y)) {
+        if(velocity_x > 0) {
+            clock.cycle_backward();
+        } else {
+            clock.cycle_forward();
+        }
+    }
 }
 
 MainWindow::~MainWindow() = default;

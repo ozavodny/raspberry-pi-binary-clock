@@ -17,6 +17,9 @@ protected:
     gboolean on_key_press(GdkEventKey *eventKey);
 
     bool is_fullscreen = false;
+
+    Glib::RefPtr<Gtk::GestureSwipe> gesture_swipe;
+    void on_gesture_swipe_swipe(double velocity_x, double velocity_y);
 };
 
 #endif //RPICLOCK_MAINWINDOW_H
