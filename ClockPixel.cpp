@@ -11,7 +11,6 @@ bool ClockPixel::on_draw(const Cairo::RefPtr<Cairo::Context> &cr) {
     else
         cr->set_source_rgb(active_style->a.r, active_style->a.g, active_style->a.b);
     cr->fill();
-    cr->set_line_width(1);
 
     return true;
 }
