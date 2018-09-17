@@ -1,4 +1,5 @@
 #include <giomm.h>
+#include <iostream>
 #include "ClockGrid.h"
 
 ClockGrid::ClockGrid() {
@@ -7,6 +8,7 @@ ClockGrid::ClockGrid() {
     for (int i = 0; i < 6; i++) {
         for (int j = 0; j < 4; j++) {
             auto pixel = new ClockPixel();
+            pixel->active_style = styles + style;
             pixels.push_back(pixel);
             pixel->show();
             attach(*pixel, i, j, 1, 1);
@@ -36,4 +38,27 @@ bool ClockGrid::on_timeout() {
     }
 
     return true;
+}
+
+void ClockGrid::cycle_forward() {
+    style++;
+    if(style == style_count)
+        style = 0;
+    update_styles();
+}
+
+void ClockGrid::cycle_backward() {
+    style--;
+    if(style < 0)
+        style = style_count - 1;
+    update_styles();
+}
+
+void ClockGrid::update_styles() {
+
+    for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 4; j++) {
+            pixels[i * 4 + j]->active_style = styles + style;
+        }
+    }
 }
