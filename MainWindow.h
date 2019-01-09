@@ -20,6 +20,8 @@ protected:
 
     Glib::RefPtr<Gtk::GestureSwipe> gesture_swipe;
     void on_gesture_swipe_swipe(double velocity_x, double velocity_y);
+
+    void on_realize() override;
 };
 
 #endif //RPICLOCK_MAINWINDOW_H

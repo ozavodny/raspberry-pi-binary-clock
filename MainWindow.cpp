@@ -13,6 +13,13 @@ MainWindow::MainWindow() {
     gesture_swipe = Gtk::GestureSwipe::create(*this);
     gesture_swipe->signal_swipe().connect(sigc::mem_fun(*this, &MainWindow::on_gesture_swipe_swipe));
     gesture_swipe->set_touch_only(false);
+    fullscreen();
+}
+
+void MainWindow::on_realize() {
+    Widget::on_realize();
+
+    get_window()->set_cursor(Gdk::Cursor::create(Gdk::BLANK_CURSOR));
 }
 
 gboolean MainWindow::on_key_press(GdkEventKey *eventKey) {
@@ -32,7 +39,7 @@ gboolean MainWindow::on_key_press(GdkEventKey *eventKey) {
 }
 
 void MainWindow::on_gesture_swipe_swipe(double velocity_x, double velocity_y) {
-    if(abs(velocity_x) > abs(velocity_y)) {
+    if(std::abs(velocity_x) > std::abs(velocity_y)) {
         if(velocity_x > 0) {
             clock.cycle_backward();
         } else {
