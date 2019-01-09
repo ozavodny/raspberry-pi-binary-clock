@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Binary clock
+Comment=Binary clock for pi
+Exec=#PATH_TO_PROJECT#/RpiClock/RpiClock
+Type=Application
+Encoding=UTF-8
+Terminal=false
+Categories=None;
+
